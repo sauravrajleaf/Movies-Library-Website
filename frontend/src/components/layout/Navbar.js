@@ -31,7 +31,12 @@ export const Navbar = () => {
 					</li>
 					<li>
 						<NavLink exact='true' activeClassName='active' to='/signin'>
-							Sign In/Up
+							Sign In
+						</NavLink>
+					</li>
+					<li>
+						<NavLink exact='true' activeClassName='active' to='/signup'>
+							Sign Up
 						</NavLink>
 					</li>
 				</ul>

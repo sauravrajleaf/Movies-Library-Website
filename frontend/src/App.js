@@ -1,7 +1,10 @@
 import "./App.css";
 
+import { Navbar } from "./components/layout/Navbar";
 import { Home } from "./components/pages/Home";
-import { MyList } from "./components/pages/MyList";
+import { MyList } from "./components/favorites/MyList";
+import { Register } from "./components/auth/Register";
+import { Login } from "./components/auth/Login";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -9,10 +12,12 @@ function App() {
 		<Router>
 			<>
 				<div>
+					<Navbar />
 					<Routes>
-						hey
 						<Route path='/' element={<Home />} />
 						<Route path='/mylist' element={<MyList />} />
+						<Route path='/signin' element={<Login />} />
+						<Route path='/signup' element={<Register />} />
 					</Routes>
 				</div>
 			</>

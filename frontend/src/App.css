@@ -6,6 +6,8 @@
 }
 
 body {
-	font-family: Lato, Helvetica, Arial, sans-serif;
+	height: 100vh;
+	background: #d7dde5;
+	font-family: "Roboto", sans-serif;
 	/* background: #eee; */
 }

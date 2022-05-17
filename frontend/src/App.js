@@ -8,6 +8,7 @@ import { Home } from "./components/pages/Home";
 import { MyList } from "./components/favorites/MyList";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
+import { Footer } from "./components/layout/Footer";
 
 // import PrivateRoute from "./components/routing/PrivateRoute";
 
@@ -40,6 +41,7 @@ function App() {
 						<Route path='/signin' element={<Login />} />
 						<Route path='/signup' element={<Register />} />
 					</Routes>
+					<Footer />
 				</div>
 			</>
 		</Provider>

@@ -7,9 +7,14 @@ import "./Home.css";
 
 export const Home = () => {
 	const [movies, setMovies] = useState([]);
+	const [check, setCheck] = useState("");
 	const [searchValue, setSearchValue] = useState("");
 	const searchMovies = async (searchValue) => {
 		const sendReq = await axios(`/api/data/${searchValue}`);
+		if (sendReq.data.Error !== null) {
+			// console.log(sendReq.data.Error);
+			setCheck(sendReq.data.Error);
+		}
 		console.log(sendReq.data.Search);
 		if (sendReq.data.Search !== null) {
 			setMovies(sendReq.data.Search);
@@ -27,6 +32,7 @@ export const Home = () => {
 
 	const clearSearchValue = () => {
 		setSearchValue("");
+		setMovies([]);
 	};
 	console.log(movies);
 	return (
@@ -55,7 +61,7 @@ export const Home = () => {
 								onClick={clearSearchValue}
 							/>
 						)}
-						{searchValue}
+						{searchValue && check && <h1>Type atleast 3 or more characters</h1>}
 						<br></br>
 						{!movies && <p>Your Result will be displayed here</p>}
 						{movies && <MoviesList movies={movies} />}

@@ -7,40 +7,40 @@ import logo from "../../img/logo.jpg";
 import "./Navbar.css";
 
 export const Navbar = () => {
-	return (
-		<div>
-			<nav>
-				<div className='div-logo'>
-					<Link to='/' className='logo'>
-						<img src={logo} alt='logo' height='50px' width='50px' />
-						<span>
-							<p>Movies Website</p>
-						</span>
-					</Link>
-				</div>
-				<ul>
-					<li>
-						<NavLink exact='true' activeClassName='active' to='/'>
-							Home
-						</NavLink>
-					</li>
-					<li>
-						<NavLink exact='true' activeClassName='active' to='/mylist'>
-							My List
-						</NavLink>
-					</li>
-					<li>
-						<NavLink exact='true' activeClassName='active' to='/signin'>
-							Sign In
-						</NavLink>
-					</li>
-					<li>
-						<NavLink exact='true' activeClassName='active' to='/signup'>
-							Sign Up
-						</NavLink>
-					</li>
-				</ul>
-			</nav>
-		</div>
-	);
+  return (
+    <div>
+      <nav>
+        <div className="div-logo">
+          <Link to="/" className="logo">
+            <img src={logo} alt="logo" height="50px" width="50px" />
+            <span>
+              <p>Movies Website</p>
+            </span>
+          </Link>
+        </div>
+        <ul>
+          <li>
+            <NavLink exact="true" activeClassName="active" to="/">
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink exact="true" activeClassName="active" to="/mylist">
+              My List
+            </NavLink>
+          </li>
+          <li>
+            <NavLink exact="true" activeClassName="active" to="/signin">
+              Sign In
+            </NavLink>
+          </li>
+          <li>
+            <NavLink exact="true" activeClassName="active" to="/signup">
+              Sign Up
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  );
 };

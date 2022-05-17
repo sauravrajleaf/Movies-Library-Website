@@ -27,11 +27,6 @@ const Login = ({ login, isAuthenticated, auth }) => {
 	const onFormSubmit = async (e) => {
 		e.preventDefault();
 		login(email, password);
-
-		// if (isAuthenticated) {
-		// 	navigate("/");
-		// }
-		// console.log(isAuthenticated);
 	};
 	useEffect(() => {
 		if (isAuthenticated && localStorage.getItem("token") !== null) {

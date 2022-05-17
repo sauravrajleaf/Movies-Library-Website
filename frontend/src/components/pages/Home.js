@@ -9,16 +9,11 @@ export const Home = () => {
 	const [movies, setMovies] = useState([]);
 	const [searchValue, setSearchValue] = useState("");
 	const searchMovies = async (searchValue) => {
-		const url = `http://www.omdbapi.com/?apikey=1a7828e4&s=${searchValue}`;
-		const response = await axios.get(url);
-		// console.log(response);
-		if (response) {
-			setMovies(response.data.Search);
+		const sendReq = await axios(`/api/data/${searchValue}`);
+		console.log(sendReq.data.Search);
+		if (sendReq.data.Search !== null) {
+			setMovies(sendReq.data.Search);
 		}
-		// setTimeout(() => {
-
-		// 	console.log(movies);
-		// }, 200);
 	};
 
 	useEffect(() => {
@@ -33,7 +28,7 @@ export const Home = () => {
 	const clearSearchValue = () => {
 		setSearchValue("");
 	};
-
+	console.log(movies);
 	return (
 		<>
 			<div className='home-container'>

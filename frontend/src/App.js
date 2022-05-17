@@ -9,14 +9,13 @@ import { MyList } from "./components/favorites/MyList";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 
-import PrivateRoute from "./components/routing/PrivateRoute";
+// import PrivateRoute from "./components/routing/PrivateRoute";
 
 import { Provider } from "react-redux";
 import store from "./store";
 
 import { loadUser } from "./actions/auth";
 
-// import AuthState from "./context/auth/AuthState";
 import { setAuthToken } from "./utils/setAuthToken";
 
 if (localStorage.token) {
@@ -35,9 +34,9 @@ function App() {
 					<Navbar />
 					<Routes>
 						<Route path='/' element={<Home />} />
-						<Route element={<PrivateRoute />}>
-							<Route path='/mylist' element={<MyList />} />
-						</Route>
+						{/* <Route element={<PrivateRoute />}> */}
+						<Route path='/mylist' element={<MyList />} />
+						{/* </Route> */}
 						<Route path='/signin' element={<Login />} />
 						<Route path='/signup' element={<Register />} />
 					</Routes>

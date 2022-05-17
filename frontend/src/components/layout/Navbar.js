@@ -49,7 +49,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 			</li>
 		</ul>
 	);
-	console.log(isAuthenticated);
+	// console.log(isAuthenticated);
 	return (
 		<div>
 			<nav>

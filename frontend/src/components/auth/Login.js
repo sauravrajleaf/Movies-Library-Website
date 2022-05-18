@@ -35,7 +35,7 @@ const Login = ({ login, isAuthenticated, auth }) => {
 	});
 
 	return (
-		<div>
+		<div className='container'>
 			<h1>Login</h1>
 			<form action='' onSubmit={onFormSubmit}>
 				<div className='form-group'>
@@ -59,7 +59,9 @@ const Login = ({ login, isAuthenticated, auth }) => {
 					/>
 				</div>
 
-				<input type='submit' value='Log In' />
+				<button type='submit' value='SingUp'>
+					Log In
+				</button>
 				<p>
 					Don't have an account? <Link to='/register'>Sign Up</Link>
 				</p>

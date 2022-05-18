@@ -3,7 +3,7 @@ import axios from "axios";
 
 import { MoviesList } from "../movies/MoviesList";
 
-import "./Home.css";
+// import "./Home.css";
 
 export const Home = () => {
 	const [movies, setMovies] = useState([]);

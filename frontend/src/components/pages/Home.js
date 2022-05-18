@@ -10,7 +10,7 @@ export const Home = () => {
 	const [check, setCheck] = useState("");
 	const [searchValue, setSearchValue] = useState("");
 	const searchMovies = async (searchValue) => {
-		const sendReq = await axios(`/api/data/${searchValue}`);
+		const sendReq = await axios.get(`/api/data/${searchValue}`);
 		if (sendReq.data.Error !== null) {
 			// console.log(sendReq.data.Error);
 			setCheck(sendReq.data.Error);

@@ -1,8 +1,12 @@
 const express = require("express");
+const dotenv = require("dotenv");
 const connectDB = require("./config/db");
+const path = require("path");
 
 const cors = require("cors");
 const axios = require("axios");
+
+dotenv.config();
 
 const app = express();
 
@@ -24,12 +28,28 @@ app.get("/api/data/:searchValue", async (req, res) => {
 	const { searchValue } = req.params;
 	console.log(searchValue);
 	const response = await axios.get(
-		`http://www.omdbapi.com/?apikey=1a7828e4&s=${searchValue}`
+		`http://www.omdbapi.com/?apikey=${process.env.REACT_APP_CLIENT_SECRET}&s=${searchValue}`
 	);
 	console.log(response.data);
 	return res.send(response.data);
 });
 
+//FOR PRODUCTION
+
+__dirname = path.resolve();
+app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
+
+if (process.env.NODE_ENV === "production") {
+	app.use(express.static(path.join(__dirname, "frontend/build")));
+
+	app.get("*", (req, res) =>
+		res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"))
+	);
+}
+
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => console.log(`server started on port ${PORT}`));
+app.listen(
+	PORT,
+	console.log(`server started in ${process.env.NODE_ENV} mode on port ${PORT}`)
+);

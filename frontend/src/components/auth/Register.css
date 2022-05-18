@@ -3,6 +3,7 @@
 	font-family: Montserrat, Arial, Helvetica, sans-serif;
 	padding: 20px;
 	width: 500px;
+	min-height: 450px;
 	position: absolute;
 	left: 50%;
 	top: 50%;

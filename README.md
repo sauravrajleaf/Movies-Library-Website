@@ -123,7 +123,7 @@ This is an example of how to list things you need to use the software and how to
 1. Get a free API Key at (http://www.omdbapi.com/)
 2. Clone the repo
    ```sh
-   git clone (https://github.com/sauravrajleaf/Movies-Library-Website)
+   git clone https://github.com/sauravrajleaf/Movies-Library-Website
    ```
 3. Change your current directory to cloned folder
    ```sh

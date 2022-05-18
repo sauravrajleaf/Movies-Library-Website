@@ -1,0 +1,72 @@
+.movies-item-tile {
+	min-width: 380px;
+	min-height: 500px;
+	margin: 10px;
+	background-color: #99aeff;
+	display: inline-block;
+	background-size: cover;
+	position: relative;
+	cursor: pointer;
+	transition: all 0.4s ease-out;
+	box-shadow: 0px 35px 77px -17px rgba(0, 0, 0, 0.44);
+	overflow: hidden;
+	color: white;
+	font-family: "Roboto";
+}
+
+.movies-item-image {
+	min-height: 100%;
+	min-width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 0;
+	transition: all 0.4s ease-out;
+}
+
+.movies-item-text {
+	position: absolute;
+	padding: 30px;
+	height: calc(100% - 60px);
+}
+
+.movies-item-text h1 {
+	font-weight: 300;
+	margin: 0;
+	text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.movies-item-text h2 {
+	font-weight: 100;
+	margin: 20px 0 0 0;
+	font-style: italic;
+	transform: translateX(200px);
+}
+
+.movies-item-text p {
+	font-weight: 300;
+	margin: 20px 0 0 0;
+	line-height: 25px;
+	/*   opacity:0; */
+	transform: translateX(-200px);
+	transition-delay: 0.2s;
+}
+
+.movies-animated-text {
+	opacity: 0;
+	transition: all 0.6s ease-in-out;
+}
+
+.movies-item-tile:hover {
+	box-shadow: 0px 35px 77px -17px rgba(0, 0, 0, 0.64);
+	transform: scale(1.05);
+}
+
+.movies-item-tile:hover img {
+	opacity: 0.3;
+}
+
+.movies-animated-tile:hover .movies-animated-text {
+	transform: translateX(0);
+	opacity: 1;
+}

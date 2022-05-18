@@ -1,22 +1,13 @@
-/* .home-container {
-	display: flex;
-	justify-content: center;
-	/* align-items: center; */
-	/* background-color: blue; */
-}
-
-/* .form-container {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-} */
-/* h2 {
-	text-align: center;
-	/* color: aquamarine; */
-} */
-
-/* form {
+.home-container {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-} */ */
+}
+.form-container {
+	padding: 40px;
+}
+
+.home-container h2 {
+	display: inline-block;
+	color: #fff;
+}

@@ -5,6 +5,8 @@
 
 import movieImage from "../../img/movie.jpg";
 
+import "./MoviesItem.css";
+
 export const MoviesItem = ({
 	movie: { Title, Year, imdbID, Poster, Type },
 }) => {
@@ -19,33 +21,41 @@ export const MoviesItem = ({
 	// 	}
 	// 	console.log(showMovie);
 	// };
-	console.log(Poster);
+	// console.log(Poster);
 	let check = true;
 	if (Poster === "N/A") {
 		check = false;
 	}
 	return (
-		<div className='movie-item'>
+		<div className='movies-item-tile'>
 			{check && (
-				<img src={Poster} height='400px' width='300px' alt='movie-img'></img>
+				<div>
+					<img src={Poster} alt='movie-img' className='movies-item-image'></img>
+				</div>
 			)}
 			{!check && (
 				<div>
-					<img src={movieImage} height='400px' width='300px'></img>
+					<img
+						src={movieImage}
+						alt='movie-img'
+						className='movies-item-image'
+					></img>
 					<p>No Image Available</p>
 				</div>
 			)}
-
-			{Title}
-			{Year}
-			{Type}
-			{/* <div>
-				<button>
-					<Link to={`/movie/${imdbID}`} onClick={movieDetails(imdbID)}>
-						Click For More Info
-					</Link>
-				</button>
-			</div> */}
+			<div className='movies-item-text'>
+				<h1>{Title}</h1>
+				<h2 className='movies-animated-text'>{Year}</h2>
+				<p className='movies-animated-text'>
+					{" "}
+					{imdbID} {Type}
+				</p>
+				<div className='dots'>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+			</div>
 		</div>
 	);
 };

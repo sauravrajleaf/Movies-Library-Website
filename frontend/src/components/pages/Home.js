@@ -3,7 +3,7 @@ import axios from "axios";
 
 import { MoviesList } from "../movies/MoviesList";
 
-// import "./Home.css";
+import "./Home.css";
 
 export const Home = () => {
 	const [movies, setMovies] = useState([]);
@@ -45,29 +45,26 @@ export const Home = () => {
 							<input
 								type='text'
 								name='user-search'
-								placeholder='Enter movie name'
+								placeholder='Start Typing...'
 								value={searchValue}
 								onChange={onInputChange}
 							></input>
 						</label>
-						<input type='submit' value='submit' />
 					</form>
 
 					<div className='search-results'>
 						{searchValue && (
-							<input
-								type='submit'
-								value='Clear Search'
-								onClick={clearSearchValue}
-							/>
+							<button value='Clear Search' onClick={clearSearchValue}>
+								Clear
+							</button>
 						)}
-						{searchValue && check && <h1>Type atleast 3 or more characters</h1>}
+						{searchValue && check && <h3>Type atleast 3 or more characters</h3>}
 						<br></br>
-						{!movies && <p>Your Result will be displayed here</p>}
-						{movies && <MoviesList movies={movies} />}
 					</div>
 				</div>
 			</div>
+			{!movies && <p>Your Result will be displayed here</p>}
+			{movies && <MoviesList movies={movies} />}
 		</>
 	);
 };

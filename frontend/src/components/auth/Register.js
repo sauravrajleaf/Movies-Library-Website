@@ -76,7 +76,7 @@ const Register = ({ register, isAuthenticated, history, location, auth }) => {
 				/>
 				{/* </div> */}
 				{/* <div className='login_field'> */}
-				<label htmlFor='password2'>Password</label>
+				<label htmlFor='password2'>Confirm Password</label>
 				<input
 					type='password'
 					name='password2'

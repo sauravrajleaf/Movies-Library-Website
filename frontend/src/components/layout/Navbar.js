@@ -56,7 +56,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 					<Link to='/' className='logo'>
 						<img src={logo} alt='logo' height='50px' width='50px' />
 						<span>
-							<p>Movies Website</p>
+							<p>Movies Library App</p>
 						</span>
 					</Link>
 				</div>

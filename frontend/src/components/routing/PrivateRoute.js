@@ -1,24 +1,14 @@
 import React from "react";
-import {
-	BrowserRouter as Router,
-	Route,
-	Routes,
-	useNavigate,
-	Outlet,
-} from "react-router-dom";
+import { useNavigate, Outlet } from "react-router-dom";
 import { connect } from "react-redux";
 import Login from "../auth/Login";
 
-const useAuth = ({ isAuthenticated }) => {
-	const isLoggedIn = isAuthenticated;
+const PrivateRoute = ({ isAuthenticated }) => {
 	console.log(isAuthenticated);
-	return isLoggedIn;
-};
-const PrivateRoute = () => {
-	// console.log(isAuthenticated);
-	const auth = useAuth();
+	const auth = isAuthenticated;
+	const navigate = useNavigate();
 	console.log(auth);
-	return auth ? <Outlet /> : <Login />;
+	return auth ? <Outlet /> : navigate("/login");
 };
 
 const mapStateToProps = (state) => {

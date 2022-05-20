@@ -10,7 +10,7 @@ import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import { Footer } from "./components/layout/Footer";
 
-// import PrivateRoute from "./components/routing/PrivateRoute";
+import PrivateRoute from "./components/routing/PrivateRoute";
 
 import { Provider } from "react-redux";
 import store from "./store";
@@ -35,11 +35,11 @@ function App() {
 					<Navbar />
 					<Routes>
 						<Route path='/' element={<Home />} />
-						{/* <Route element={<PrivateRoute />}> */}
-						<Route path='/mylist' element={<MyList />} />
-						{/* </Route> */}
 						<Route path='/signin' element={<Login />} />
 						<Route path='/signup' element={<Register />} />
+						<Route element={<PrivateRoute />}>
+							<Route path='/mylist' element={<MyList />} />
+						</Route>
 					</Routes>
 					{/* <Footer /> */}
 				</div>

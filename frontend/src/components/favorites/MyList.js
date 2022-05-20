@@ -1,5 +1,12 @@
 import React from "react";
 
+import "./MyList.css";
+
 export const MyList = () => {
-	return <div>MyList</div>;
+	return (
+		<div className='mylist-container'>
+			{" "}
+			<h1>MyList</h1>
+		</div>
+	);
 };

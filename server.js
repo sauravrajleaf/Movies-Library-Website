@@ -34,6 +34,15 @@ app.get("/api/data/:searchValue", async (req, res) => {
 	return res.send(response.data);
 });
 
+app.get("/api/data/:searchValue/:currentPage", async (req, res) => {
+	const { searchValue, currentPage } = req.params;
+	console.log(searchValue);
+	const response = await axios.get(
+		`http://www.omdbapi.com/?apikey=${process.env.REACT_APP_CLIENT_SECRET}&s=${searchValue}&page=${currentPage}`
+	);
+	console.log(response.data);
+	return res.send(response.data);
+});
 //FOR PRODUCTION
 
 __dirname = path.resolve();

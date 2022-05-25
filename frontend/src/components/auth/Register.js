@@ -85,7 +85,7 @@ const Register = ({ register, isAuthenticated, history, location, auth }) => {
 					className='login_input'
 				/>
 				{/* // </div> */}
-				<button type='submit' value='SingUp'>
+				<button type='submit' value='SingUp' className='sign-up-button'>
 					Sign Up
 				</button>
 				<p>

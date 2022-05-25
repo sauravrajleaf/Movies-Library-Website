@@ -5,7 +5,7 @@ import "./App.css";
 
 import Navbar from "./components/layout/Navbar";
 import { Home } from "./components/pages/Home";
-import { MyList } from "./components/favorites/MyList";
+import { MyList } from "./components/mylist/MyList";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import { Footer } from "./components/layout/Footer";

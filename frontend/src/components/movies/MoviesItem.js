@@ -1,6 +1,6 @@
-// import React, { useState } from "react";
+import React, { useState } from "react";
 // import axios from "axios";
-
+import { useNavigate } from "react-router-dom";
 // import { Link } from "react-router-dom";
 
 import movieImage from "../../img/movie.jpg";
@@ -22,40 +22,52 @@ export const MoviesItem = ({
 	// 	console.log(showMovie);
 	// };
 	// console.log(Poster);
+	const navigate = useNavigate();
 	let check = true;
 	if (Poster === "N/A") {
 		check = false;
 	}
+	const handleClick = (e) => {
+		console.log("clicked add ");
+		// navigate("/mylist");
+	};
 	return (
-		<div className='movies-item-tile'>
-			{check && (
-				<div>
-					<img src={Poster} alt='movie-img' className='movies-item-image'></img>
-				</div>
-			)}
-			{!check && (
-				<div>
-					<img
-						src={movieImage}
-						alt='movie-img'
-						className='movies-item-image'
-					></img>
-					<p>No Image Available</p>
-				</div>
-			)}
-			<div className='movies-item-text'>
-				<h1>{Title}</h1>
-				<h2 className='movies-animated-text'>{Year}</h2>
-				<p className='movies-animated-text'>
-					{" "}
-					{imdbID} {Type}
-				</p>
-				<div className='dots'>
-					<span></span>
-					<span></span>
-					<span></span>
+		<>
+			<div className='movies-item-tile'>
+				{check && (
+					<div>
+						<img
+							src={Poster}
+							alt='movie-img'
+							className='movies-item-image'
+						></img>
+					</div>
+				)}
+				{!check && (
+					<div>
+						<img
+							src={movieImage}
+							alt='movie-img'
+							className='movies-item-image'
+						></img>
+						<p>No Image Available</p>
+					</div>
+				)}
+				<div className='movies-item-text'>
+					<h1>{Title}</h1>
+					<h2 className='movies-animated-text'>
+						{Year}
+						<p className='movies-animated-text'>
+							{" "}
+							{imdbID}
+							{Type}
+						</p>
+					</h2>
 				</div>
 			</div>
-		</div>
+			<button className='add-to-favorite-button' onClick={handleClick}>
+				Add to favorite
+			</button>
+		</>
 	);
 };

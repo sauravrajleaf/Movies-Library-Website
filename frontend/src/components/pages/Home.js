@@ -12,7 +12,7 @@ export const Home = () => {
 	const [searchValue, setSearchValue] = useState("");
 
 	const [currentPage, setCurrentPage] = useState("1");
-	const [moviesPerPage, setMoviesPerPage] = useState("10");
+	const [moviesPerPage] = useState("10");
 	const [totalMovies, setTotalMovies] = useState("");
 
 	useEffect(() => {
@@ -81,7 +81,11 @@ export const Home = () => {
 
 					<div className='search-results'>
 						{searchValue && (
-							<button value='Clear Search' onClick={clearSearchValue}>
+							<button
+								value='Clear Search'
+								className='home-button'
+								onClick={clearSearchValue}
+							>
 								Clear
 							</button>
 						)}

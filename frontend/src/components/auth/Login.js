@@ -59,7 +59,7 @@ const Login = ({ login, isAuthenticated, auth }) => {
 					/>
 				</div>
 
-				<button type='submit' value='SingUp'>
+				<button type='submit' value='SingUp' className='sign-up-button'>
 					Log In
 				</button>
 				<p>

@@ -1,12 +1,9 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { connect } from "react-redux";
 
 import { login } from "../../actions/auth";
-import axios from "axios";
-
-import { setAuthToken } from "../../utils/setAuthToken";
 
 const Login = ({ login, isAuthenticated, auth }) => {
 	const navigate = useNavigate();

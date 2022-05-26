@@ -18,6 +18,7 @@ router.get("/", auth, async (req, res) => {
 			date: -1,
 		});
 		res.json(favorites);
+		console.log(favorites);
 	} catch (error) {
 		console.error(error.message);
 		res.status(500).send("Server Error");
@@ -30,21 +31,36 @@ router.get("/", auth, async (req, res) => {
 // @access Private
 router.post(
 	"/",
-	[auth, [body("imdbid", "imdbid is required").not().isEmpty()]],
+	[
+		auth,
+
+		[
+			body("Poster", "Poster is required").not().isEmpty(),
+			body("Title", "imdbid is required").not().isEmpty(),
+			body("Type", "Type is required").not().isEmpty(),
+			body("Year", "Year is required").not().isEmpty(),
+			body("imdbID", "imdbid is required").not().isEmpty(),
+		],
+	],
 	async (req, res) => {
 		const errors = validationResult(req);
 		if (!errors.isEmpty()) {
 			return res.status(400).json({ errors: errors.array() });
 		}
 
-		const { imdbid } = req.body;
+		const { Poster, Title, Type, Year, imdbID } = req.body;
 
 		try {
 			const newFavorite = new Favorite({
-				imdbid,
+				imdbID,
+				Poster,
+				Type,
+				Year,
+				Title,
 				user: req.user.id,
 			});
 			const favorite = await newFavorite.save();
+			console.log(newFavorite);
 			res.json(favorite);
 		} catch (error) {
 			console.error(error.message);

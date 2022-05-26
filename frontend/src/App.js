@@ -28,7 +28,6 @@ function App() {
 		store.dispatch(loadUser());
 	}, []);
 	return (
-		// <AuthState>
 		<Provider store={store}>
 			<>
 				<div>
@@ -45,7 +44,6 @@ function App() {
 				</div>
 			</>
 		</Provider>
-		// </AuthState>
 	);
 }
 

@@ -4,10 +4,10 @@ import { connect } from "react-redux";
 import Login from "../auth/Login";
 
 const PrivateRoute = ({ isAuthenticated }) => {
-	console.log(isAuthenticated);
+	// console.log(isAuthenticated);
 	const auth = isAuthenticated;
 	const navigate = useNavigate();
-	console.log(auth);
+	// console.log(auth);
 	return auth ? <Outlet /> : navigate("/login");
 };
 

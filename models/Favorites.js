@@ -5,9 +5,25 @@ const FavoritesSchema = mongoose.Schema({
 		type: mongoose.Schema.Types.ObjectId,
 		ref: "user",
 	},
-	imdbid: {
+	imdbID: {
 		type: String,
-		unique: true,
+		require: true,
+	},
+	Poster: {
+		type: String,
+		require: true,
+	},
+	Title: {
+		type: String,
+		require: true,
+	},
+	Type: {
+		type: String,
+		require: true,
+	},
+	Year: {
+		type: String,
+		require: true,
 	},
 	date: {
 		type: Date,

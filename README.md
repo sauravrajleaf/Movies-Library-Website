@@ -90,6 +90,7 @@ The movie app helps you show the movie you are looking for and also to make a fa
 * [HTML](https://www.w3schools.com/html/)
 * [CSS](https://www.w3schools.com/css/)
 * [React.js](https://reactjs.org/)
+* [Redux](https://redux.js.org/)
 
 ### Backend
 * [Node.js](https://nodejs.org/en/)
@@ -169,6 +170,9 @@ The action taken on the representation will be contextual to the media type bein
 | Login a user      | POST      |   /api/auth |
 | Register a user | POST     |    /api/users |
 | Search for a movie | GET     |    /api/data/${searchValue} |
+| Get all movies list of the user| GET | /api/mylist |
+| Add movie to users list| POST | /api/mylist |
+| Delete the movie from the list| DELETE | /api/mylist/:id |
 
 
 
@@ -203,7 +207,7 @@ See the [open issues](https://github.com/github_username/repo_name/issues) for a
 <!-- CONTACT -->
 ## Contact
 
-Project Link:(https://github.com/sauravrajleaf/Movies-Library-Website)
+Project Link:(https://movielibraryapp.herokuapp.com/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

@@ -48,7 +48,9 @@ export const MoviesItem = ({
 			Poster,
 			Type,
 		});
-		dispatch(createFavoriteMovies({ Title, Year, imdbID, Poster, Type }));
+		if (localStorage.token) {
+			dispatch(createFavoriteMovies({ Title, Year, imdbID, Poster, Type }));
+		}
 	};
 	// console.log(addMovie);
 	return (

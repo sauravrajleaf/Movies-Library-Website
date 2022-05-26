@@ -72,7 +72,7 @@ router.post(
 
 router.delete(
 	"/:id",
-	[auth, [body("imdbid", "imdbid is required").not().isEmpty()]],
+	[auth, [body("_id", "_id is required").not().isEmpty()]],
 	async (req, res) => {
 		try {
 			let favorite = await Favorite.findById(req.params.id);
@@ -86,6 +86,7 @@ router.delete(
 			await Favorite.findByIdAndRemove(req.params.id);
 
 			res.json({ msg: "Movie Removed" });
+			console.log("hey");
 		} catch (error) {
 			console.error(error.message);
 			res.status(500).send("Server Error");

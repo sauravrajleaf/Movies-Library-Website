@@ -65,31 +65,30 @@ export const createFavoriteMovies =
 		}
 	};
 
-// export const deleteFavoriteMovies =
-// 	({ id }) =>
-// 	async (dispatch) => {
-// 		console.log("i am here in delete action");
-// 		console.log({ id });
-// 		if (localStorage.token) {
-// 			setAuthToken(localStorage.token);
-// 		}
-// 		const config = {
-// 			headers: {
-// 				"Content-Type": "application/json",
-// 			},
-// 		};
-// 		const body = JSON.stringify({ id });
-// 		try {
-// 			const res = await axios.delete("/api/mylist/:id", body, config);
-// 			console.log(res.data);
-// 			dispatch({
-// 				type: DELETE_FAVORITE_SUCCESS,
-// 				payload: res.data,
-// 			});
-// 		} catch (error) {
-// 			dispatch({
-// 				type: DELETE_FAVORITE_FAIL,
-// 				payload: error.response,
-// 			});
-// 		}
-// 	};
+export const deleteFavoriteMovies = (id) => async (dispatch) => {
+	console.log("i am here in delete action");
+	console.log(id);
+	if (localStorage.token) {
+		setAuthToken(localStorage.token);
+	}
+	// const config = {
+	// 	headers: {
+	// 		"Content-Type": "application/json",
+	// 	},
+	// };
+	try {
+		const res = await axios.delete(`/api/mylist/${id}`);
+		console.log(res.data);
+		dispatch({
+			type: DELETE_FAVORITE_SUCCESS,
+			payload: res.data,
+		});
+		console.log(res.data);
+	} catch (error) {
+		console.log(error);
+		dispatch({
+			type: DELETE_FAVORITE_FAIL,
+			payload: error.response,
+		});
+	}
+};

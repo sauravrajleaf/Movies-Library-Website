@@ -77,11 +77,16 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
 The movie app helps you show the movie you are looking for and also to make a favorite list of your own with the my list feature in it. 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+[![Product Name Screen Shot][product-screenshot]]
+
+![1](https://user-images.githubusercontent.com/52833031/170580827-fc4d4164-56af-400a-863f-3dc65efafe8f.PNG)
+![2](https://user-images.githubusercontent.com/52833031/170580742-836a001b-1014-4dd4-82f2-336798e9615c.PNG)
+
+
+
 
 
 

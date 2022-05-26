@@ -25,7 +25,6 @@ export const MyListItems = ({
 		check = false;
 	}
 
-	// console.log(addMovie);
 	return (
 		<>
 			<div className='movies-item-tile'>

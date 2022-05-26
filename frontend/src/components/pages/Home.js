@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 import { MoviesList } from "../movies/MoviesList";
 import { Pagination } from "../layout/Pagination";
@@ -15,6 +16,7 @@ export const Home = () => {
 	const [moviesPerPage] = useState("10");
 	const [totalMovies, setTotalMovies] = useState("");
 
+	const navigate = useNavigate();
 	useEffect(() => {
 		if (currentPage === 1) {
 			searchMovies(searchValue);
@@ -55,6 +57,8 @@ export const Home = () => {
 	const clearSearchValue = () => {
 		setSearchValue("");
 		setMovies([]);
+		setCurrentPage("1");
+		navigate("/");
 	};
 
 	const paginate = (number) => {

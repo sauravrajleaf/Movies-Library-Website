@@ -40,7 +40,7 @@ export const MoviesItem = ({
 		check = false;
 	}
 	const handleClick = (e) => {
-		console.log("clicked add ");
+		// console.log("clicked add ");
 		setAddMovie({
 			Title,
 			Year,

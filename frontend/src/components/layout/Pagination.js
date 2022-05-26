@@ -1,5 +1,8 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import { Link } from "react-router-dom";
+
+import "./Pagination.css";
 
 export const Pagination = ({
 	moviesPerPage,
@@ -13,21 +16,24 @@ export const Pagination = ({
 	}
 
 	return (
-		<div>
-			<ul>
-				{pageNumbers.map((number) => (
-					<li>
-						<a
-							onClick={() => {
-								paginate(number);
-								nextPage();
-							}}
-						>
-							{number}
-						</a>
-					</li>
-				))}
-			</ul>
+		<div className='pagination-container'>
+			<div className='page-numbers'>
+				<ul>
+					{pageNumbers.map((number) => (
+						<li>
+							<a
+								href='#'
+								onClick={() => {
+									paginate(number);
+									nextPage();
+								}}
+							>
+								{number}
+							</a>
+						</li>
+					))}
+				</ul>
+			</div>
 		</div>
 	);
 };

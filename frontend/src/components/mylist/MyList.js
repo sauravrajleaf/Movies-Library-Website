@@ -22,12 +22,16 @@ export const MyList = () => {
 
 	console.log(favoriteList);
 	return (
-		<div className='movies-container'>
-			{" "}
-			{favorites !== null &&
-				favorites.map((myList) => (
-					<MyListItems myList={myList} key={myList.id} />
-				))}
+		<div className='mylist-container'>
+			<h1>My List</h1>
+			<button className='add-to-favorite-button'>Share your list</button>
+			<div className='movies-container'>
+				{" "}
+				{favorites !== null &&
+					favorites.map((myList) => (
+						<MyListItems myList={myList} key={myList.id} />
+					))}
+			</div>
 		</div>
 	);
 };

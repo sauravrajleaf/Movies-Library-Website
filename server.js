@@ -6,6 +6,8 @@ const path = require("path");
 const cors = require("cors");
 const axios = require("axios");
 
+const Favorite = require("./models/Favorites");
+
 dotenv.config();
 
 const app = express();
@@ -23,6 +25,17 @@ app.use(express.json({ extended: false }));
 app.use("/api/users", require("./routes/users"));
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/mylist", require("./routes/mylist"));
+// app.use("/api/share/", require("./routes/share"));
+
+app.get("/api/share/:id", async (req, res) => {
+	const { id } = req.params;
+	console.log(id);
+	const favoritess = await Favorite.find({ user: id }).sort({
+		date: -1,
+	});
+	console.log("i am here inside finding movie");
+	res.json(favoritess);
+});
 
 app.get("/api/data/:searchValue", async (req, res) => {
 	const { searchValue } = req.params;
@@ -43,8 +56,8 @@ app.get("/api/data/:searchValue/:currentPage", async (req, res) => {
 	console.log(response.data);
 	return res.send(response.data);
 });
-//FOR PRODUCTION
 
+//FOR PRODUCTION
 __dirname = path.resolve();
 app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 

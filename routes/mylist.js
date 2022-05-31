@@ -18,7 +18,8 @@ router.get("/", auth, async (req, res) => {
 			date: -1,
 		});
 		res.json(favorites);
-		console.log(favorites);
+		// console.log(req.user.id);
+		// console.log(favorites);
 	} catch (error) {
 		console.error(error.message);
 		res.status(500).send("Server Error");

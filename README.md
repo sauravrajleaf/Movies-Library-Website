@@ -37,10 +37,10 @@
   <p align="center">
     project_description
     <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/sauravrajleaf/Movies-Library-Website"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
+    <a href="https://movielibraryapp.herokuapp.com/">View Demo</a>
     ·
     <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
     ·
@@ -77,11 +77,16 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
 The movie app helps you show the movie you are looking for and also to make a favorite list of your own with the my list feature in it. 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+[![Product Name Screen Shot][product-screenshot]]
+
+![1](https://user-images.githubusercontent.com/52833031/170580827-fc4d4164-56af-400a-863f-3dc65efafe8f.PNG)
+![2](https://user-images.githubusercontent.com/52833031/170580742-836a001b-1014-4dd4-82f2-336798e9615c.PNG)
+
+
+
 
 
 
@@ -90,6 +95,7 @@ The movie app helps you show the movie you are looking for and also to make a fa
 * [HTML](https://www.w3schools.com/html/)
 * [CSS](https://www.w3schools.com/css/)
 * [React.js](https://reactjs.org/)
+* [Redux](https://redux.js.org/)
 
 ### Backend
 * [Node.js](https://nodejs.org/en/)
@@ -169,6 +175,9 @@ The action taken on the representation will be contextual to the media type bein
 | Login a user      | POST      |   /api/auth |
 | Register a user | POST     |    /api/users |
 | Search for a movie | GET     |    /api/data/${searchValue} |
+| Get all movies list of the user| GET | /api/mylist |
+| Add movie to users list| POST | /api/mylist |
+| Delete the movie from the list| DELETE | /api/mylist/:id |
 
 
 
@@ -203,12 +212,7 @@ See the [open issues](https://github.com/github_username/repo_name/issues) for a
 <!-- CONTACT -->
 ## Contact
 
-Project Link:(https://github.com/sauravrajleaf/Movies-Library-Website)
+Project Link:(https://movielibraryapp.herokuapp.com/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 

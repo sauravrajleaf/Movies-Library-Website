@@ -6,6 +6,7 @@ import "./App.css";
 import Navbar from "./components/layout/Navbar";
 import { Home } from "./components/pages/Home";
 import { MyList } from "./components/mylist/MyList";
+import PublicListPage from "./components/publicListPage/PublicListPage";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import { Footer } from "./components/layout/Footer";
@@ -36,6 +37,10 @@ function App() {
 						<Route path='/' element={<Home />} />
 						<Route path='/signin' element={<Login />} />
 						<Route path='/signup' element={<Register />} />
+						<Route
+							path='/list/sharing/:username/:id'
+							element={<PublicListPage />}
+						/>
 						<Route element={<PrivateRoute />}>
 							<Route path='/mylist' element={<MyList />} />
 						</Route>

@@ -7,6 +7,7 @@ const cors = require("cors");
 const axios = require("axios");
 
 const Favorite = require("./models/Favorites");
+const User = require("./models/User");
 
 dotenv.config();
 
@@ -29,12 +30,14 @@ app.use("/api/mylist", require("./routes/mylist"));
 
 app.get("/api/share/:id", async (req, res) => {
 	const { id } = req.params;
-	console.log(id);
-	const favoritess = await Favorite.find({ user: id }).sort({
+	// console.log(id);
+	const favorites = await Favorite.find({ user: id }).sort({
 		date: -1,
 	});
-	console.log("i am here inside finding movie");
-	res.json(favoritess);
+	// const user = await User.find({ _id: id });
+	// console.log("i am here inside finding movie");
+	res.json(favorites);
+	// res.json(user);
 });
 
 app.get("/api/data/:searchValue", async (req, res) => {

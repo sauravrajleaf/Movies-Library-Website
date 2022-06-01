@@ -9,22 +9,40 @@ import { setAuthToken } from "../../utils/setAuthToken";
 import { MyListItems } from "./MyListItems";
 
 import "./MyList.css";
+import { Navigate, useNavigate } from "react-router-dom";
+
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 export const MyList = () => {
 	// const dispatch = useDisptach();
+	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const favoriteList = useSelector((state) => state.favorites);
+	const userData = useSelector((state) => state.auth.user);
+	console.log(userData);
 	const { favorites } = favoriteList;
 
 	useEffect(() => {
 		dispatch(getFavoriteMovies());
 	}, [dispatch]);
 
-	console.log(favoriteList);
+	// console.log(favoriteList);
+
+	const handleShareClick = async (e) => {
+		e.preventDefault();
+		console.log(favorites[0].user);
+		navigate(`/list/sharing/${userData.name}/${favorites[0].user}`);
+	};
+
 	return (
 		<div className='mylist-container'>
 			<h1>My List</h1>
-			<button className='add-to-favorite-button'>Share your list</button>
+			<CopyToClipboard text='Hello!'>
+				<button className='add-to-favorite-button' onClick={handleShareClick}>
+					Click to create share page
+				</button>
+			</CopyToClipboard>
+
 			<div className='movies-container'>
 				{" "}
 				{favorites !== null &&

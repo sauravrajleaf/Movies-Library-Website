@@ -81,9 +81,11 @@ The movie app helps you show the movie you are looking for and also to make a fa
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 [![Product Name Screen Shot][product-screenshot]]
-
 ![1](https://user-images.githubusercontent.com/52833031/170580827-fc4d4164-56af-400a-863f-3dc65efafe8f.PNG)
+[![Product Name Screen Shot][product-screenshot]]
 ![2](https://user-images.githubusercontent.com/52833031/170580742-836a001b-1014-4dd4-82f2-336798e9615c.PNG)
+[![Product Name Screen Shot][product-screenshot]]
+![3](https://user-images.githubusercontent.com/52833031/171315391-2c4d5a5f-b86d-4496-903d-56ea4b9af217.PNG)
 
 
 
@@ -178,6 +180,7 @@ The action taken on the representation will be contextual to the media type bein
 | Get all movies list of the user| GET | /api/mylist |
 | Add movie to users list| POST | /api/mylist |
 | Delete the movie from the list| DELETE | /api/mylist/:id |
+| Get data of movies list(public) | GET     |    /api/share/:id |
 
 
 

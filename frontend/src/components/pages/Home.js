@@ -27,6 +27,12 @@ export const Home = () => {
 		// eslint-disable-next-line
 	}, [searchValue, currentPage]);
 
+	useEffect(() => {
+		console.log("First call on mount..");
+
+		return () => console.log("Cleanup..");
+	}, []);
+
 	const searchMovies = async (searchValue) => {
 		const sendReq = await axios.get(`/api/data/${searchValue}`);
 		if (sendReq.data.Error !== null) {
@@ -71,6 +77,7 @@ export const Home = () => {
 			<div className='home-container'>
 				<div className='form-container'>
 					<h2>Search your movie here</h2>
+					<h2>Working on styling....</h2>
 					<form action=''>
 						<label>
 							<input

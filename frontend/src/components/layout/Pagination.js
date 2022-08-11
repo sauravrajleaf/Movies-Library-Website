@@ -8,7 +8,8 @@ export const Pagination = ({
 	moviesPerPage,
 	totalMovies,
 	paginate,
-	nextPage,
+	searchMovies,
+	searchValue,
 }) => {
 	const pageNumbers = [];
 	for (let i = 1; i <= Math.ceil(totalMovies / moviesPerPage); i++) {
@@ -25,7 +26,7 @@ export const Pagination = ({
 								href='#'
 								onClick={() => {
 									paginate(number);
-									nextPage();
+									searchMovies(searchValue, number);
 								}}
 							>
 								{number}

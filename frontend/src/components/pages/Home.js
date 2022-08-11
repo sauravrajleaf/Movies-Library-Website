@@ -18,33 +18,13 @@ export const Home = () => {
 
 	const navigate = useNavigate();
 	useEffect(() => {
-		if (currentPage === 1) {
-			searchMovies(searchValue);
-		} else {
-			nextPage(currentPage);
-		}
+		searchMovies(searchValue);
 
 		// eslint-disable-next-line
-	}, [searchValue, currentPage]);
+	}, [searchValue]);
 
-	useEffect(() => {
-		console.log("First call on mount..");
-
-		return () => console.log("Cleanup..");
-	}, []);
-
-	const searchMovies = async (searchValue) => {
-		const sendReq = await axios.get(`/api/data/${searchValue}`);
-		if (sendReq.data.Error !== null) {
-			// console.log(sendReq.data.Error);
-			setCheck(sendReq.data.Error);
-		}
-		if (sendReq.data.Search !== null) {
-			setMovies(sendReq.data.Search);
-			setTotalMovies(sendReq.data.totalResults);
-		}
-	};
-	const nextPage = async (currentPage) => {
+	const searchMovies = async (searchValue, currentPage) => {
+		// console.log(searchValue, currentPage);
 		const sendReq = await axios.get(`/api/data/${searchValue}/${currentPage}`);
 		if (sendReq.data.Error !== null) {
 			// console.log(sendReq.data.Error);
@@ -70,8 +50,9 @@ export const Home = () => {
 	const paginate = (number) => {
 		setCurrentPage(number);
 	};
-	console.log(movies);
-	console.log(currentPage);
+	// console.log(searchValue);
+	// console.log(movies);
+	// console.log(currentPage);
 	return (
 		<>
 			<div className='home-container'>
@@ -111,7 +92,8 @@ export const Home = () => {
 				moviesPerPage={moviesPerPage}
 				totalMovies={totalMovies}
 				paginate={paginate}
-				nextPage={nextPage}
+				searchMovies={searchMovies}
+				searchValue={searchValue}
 			/>
 		</>
 	);

@@ -40,23 +40,13 @@ app.get("/api/share/:id", async (req, res) => {
 	// res.json(user);
 });
 
-app.get("/api/data/:searchValue", async (req, res) => {
-	const { searchValue } = req.params;
-	console.log(searchValue);
-	const response = await axios.get(
-		`http://www.omdbapi.com/?apikey=${process.env.REACT_APP_CLIENT_SECRET}&s=${searchValue}`
-	);
-	console.log(response.data);
-	return res.send(response.data);
-});
-
 app.get("/api/data/:searchValue/:currentPage", async (req, res) => {
 	const { searchValue, currentPage } = req.params;
-	console.log(searchValue);
+	console.log(searchValue, currentPage);
 	const response = await axios.get(
 		`http://www.omdbapi.com/?apikey=${process.env.REACT_APP_CLIENT_SECRET}&s=${searchValue}&page=${currentPage}`
 	);
-	console.log(response.data);
+	// console.log(response.data);
 	return res.send(response.data);
 });
 

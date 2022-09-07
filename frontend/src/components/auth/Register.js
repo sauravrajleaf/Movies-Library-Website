@@ -27,7 +27,10 @@ const Register = ({ register, isAuthenticated, history, location, auth }) => {
 
 	const onFormSubmit = async (e) => {
 		e.preventDefault();
-		register({ name, email, password });
+		if (password === password2) {
+			register({ name, email, password });
+		}
+
 		// if (isAuthenticated) {
 		// 	navigate("/");
 		// }

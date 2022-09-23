@@ -28,7 +28,7 @@ router.get("/", auth, async (req, res) => {
 });
 
 // @route POST api/mylist
-// @get a users all lists of movies
+// @add a movie to the users database Favorties
 // @access Private
 router.post(
 	"/",

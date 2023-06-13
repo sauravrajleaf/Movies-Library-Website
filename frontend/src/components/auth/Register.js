@@ -1,19 +1,19 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
-import { connect } from "react-redux";
+import React, { useContext, useEffect, useState } from 'react';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-import { register } from "../../actions/auth";
-import axios from "axios";
+import { register } from '../../actions/auth';
+import axios from 'axios';
 
-import "./Register.css";
+import './Register.css';
 
 const Register = ({ register, isAuthenticated, history, location, auth }) => {
 	const navigate = useNavigate();
 	const [user, setUser] = useState({
-		name: "",
-		email: "",
-		password: "",
-		password2: "",
+		name: '',
+		email: '',
+		password: '',
+		password2: '',
 	});
 
 	const { name, email, password, password2 } = user;
@@ -26,6 +26,7 @@ const Register = ({ register, isAuthenticated, history, location, auth }) => {
 	};
 
 	const onFormSubmit = async (e) => {
+		console.log({ name, email, password });
 		e.preventDefault();
 		if (password === password2) {
 			register({ name, email, password });
@@ -37,8 +38,8 @@ const Register = ({ register, isAuthenticated, history, location, auth }) => {
 		// console.log(isAuthenticated);
 	};
 	useEffect(() => {
-		if (isAuthenticated && localStorage.getItem("token") !== null) {
-			navigate("/");
+		if (isAuthenticated && localStorage.getItem('token') !== null) {
+			navigate('/');
 		}
 	});
 

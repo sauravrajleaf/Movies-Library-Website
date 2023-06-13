@@ -1,13 +1,13 @@
-const express = require("express");
-const dotenv = require("dotenv");
-const connectDB = require("./config/db");
-const path = require("path");
+const express = require('express');
+const dotenv = require('dotenv');
+const connectDB = require('./config/db');
+const path = require('path');
 
-const cors = require("cors");
-const axios = require("axios");
+const cors = require('cors');
+const axios = require('axios');
 
-const Favorite = require("./models/Favorites");
-const User = require("./models/User");
+const Favorite = require('./models/Favorites');
+const User = require('./models/User');
 
 dotenv.config();
 
@@ -16,19 +16,19 @@ const app = express();
 connectDB();
 app.use(cors());
 
-app.all("*", (req, res, next) => {
-	res.header("Access-Control-Allow-Origin", "https://localhost:3000");
+app.all('*', (req, res, next) => {
+	res.header('Access-Control-Allow-Origin', 'https://localhost:3000');
 	next();
 });
 
 app.use(express.json({ extended: false }));
 
-app.use("/api/users", require("./routes/users"));
-app.use("/api/auth", require("./routes/auth"));
-app.use("/api/mylist", require("./routes/mylist"));
+app.use('/api/users', require('./routes/users'));
+app.use('/api/auth', require('./routes/auth'));
+app.use('/api/mylist', require('./routes/mylist'));
 // app.use("/api/share/", require("./routes/share"));
 
-app.get("/api/share/:id", async (req, res) => {
+app.get('/api/share/:id', async (req, res) => {
 	const { id } = req.params;
 	// console.log(id);
 	const favorites = await Favorite.find({ user: id }).sort({
@@ -40,7 +40,7 @@ app.get("/api/share/:id", async (req, res) => {
 	// res.json(user);
 });
 
-app.get("/api/data/:searchValue/:currentPage", async (req, res) => {
+app.get('/api/data/:searchValue/:currentPage', async (req, res) => {
 	const { searchValue, currentPage } = req.params;
 	console.log(searchValue, currentPage);
 	const response = await axios.get(
@@ -52,13 +52,13 @@ app.get("/api/data/:searchValue/:currentPage", async (req, res) => {
 
 //FOR PRODUCTION
 __dirname = path.resolve();
-app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
+app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
 
-if (process.env.NODE_ENV === "production") {
-	app.use(express.static(path.join(__dirname, "frontend/build")));
+if (process.env.NODE_ENV === 'production') {
+	app.use(express.static(path.join(__dirname, 'frontend/build')));
 
-	app.get("*", (req, res) =>
-		res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"))
+	app.get('*', (req, res) =>
+		res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))
 	);
 }
 

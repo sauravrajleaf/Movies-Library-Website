@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
-import { MoviesList } from "../movies/MoviesList";
-import { Pagination } from "../layout/Pagination";
+import { MoviesList } from '../movies/MoviesList';
+import { Pagination } from '../layout/Pagination';
 
-import "./Home.css";
+import './Home.css';
 
 export const Home = () => {
 	const [movies, setMovies] = useState([]);
-	const [check, setCheck] = useState("");
-	const [searchValue, setSearchValue] = useState("");
+	const [check, setCheck] = useState('');
+	const [searchValue, setSearchValue] = useState('');
 
-	const [currentPage, setCurrentPage] = useState("1");
-	const [moviesPerPage] = useState("10");
-	const [totalMovies, setTotalMovies] = useState("");
+	const [currentPage, setCurrentPage] = useState('1');
+	const [moviesPerPage] = useState('10');
+	const [totalMovies, setTotalMovies] = useState('');
 
 	const navigate = useNavigate();
 	useEffect(() => {
@@ -24,7 +24,7 @@ export const Home = () => {
 	}, [searchValue]);
 
 	const searchMovies = async (searchValue, currentPage) => {
-		// console.log(searchValue, currentPage);
+		console.log(searchValue, currentPage);
 		const sendReq = await axios.get(`/api/data/${searchValue}/${currentPage}`);
 		if (sendReq.data.Error !== null) {
 			// console.log(sendReq.data.Error);
@@ -41,10 +41,10 @@ export const Home = () => {
 	};
 
 	const clearSearchValue = () => {
-		setSearchValue("");
+		setSearchValue('');
 		setMovies([]);
-		setCurrentPage("1");
-		navigate("/");
+		setCurrentPage('1');
+		navigate('/');
 	};
 
 	const paginate = (number) => {
@@ -52,7 +52,7 @@ export const Home = () => {
 	};
 	// console.log(searchValue);
 	// console.log(movies);
-	// console.log(currentPage);
+	console.log(currentPage);
 	return (
 		<>
 			<div className='home-container'>
@@ -87,14 +87,16 @@ export const Home = () => {
 				</div>
 			</div>
 			{!movies && <p>Your Result will be displayed here</p>}
-			{movies && <MoviesList movies={movies} />}
-			<Pagination
-				moviesPerPage={moviesPerPage}
-				totalMovies={totalMovies}
-				paginate={paginate}
-				searchMovies={searchMovies}
-				searchValue={searchValue}
-			/>
+			{movies && movies.length > 0 && <MoviesList movies={movies} />}
+			{movies && movies.length > 0 && (
+				<Pagination
+					moviesPerPage={moviesPerPage}
+					totalMovies={totalMovies}
+					paginate={paginate}
+					searchMovies={searchMovies}
+					searchValue={searchValue}
+				/>
+			)}
 		</>
 	);
 };

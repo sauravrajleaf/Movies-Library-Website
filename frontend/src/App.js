@@ -1,24 +1,24 @@
-import { useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-import "./App.css";
+import './App.css';
 
-import Navbar from "./components/layout/Navbar";
-import { Home } from "./components/pages/Home";
-import { MyList } from "./components/mylist/MyList";
-import PublicListPage from "./components/publicListPage/PublicListPage";
-import Register from "./components/auth/Register";
-import Login from "./components/auth/Login";
-import { Footer } from "./components/layout/Footer";
+import Navbar from './components/layout/Navbar';
+import { Home } from './components/pages/Home';
+import { MyList } from './components/mylist/MyList';
+import PublicListPage from './components/publicListPage/PublicListPage';
+import Register from './components/auth/Register';
+import Login from './components/auth/Login';
+import { Footer } from './components/layout/Footer';
 
-import PrivateRoute from "./components/routing/PrivateRoute";
+import PrivateRoute from './components/routing/PrivateRoute';
 
-import { Provider } from "react-redux";
-import store from "./store";
+import { Provider } from 'react-redux';
+import store from './store';
 
-import { loadUser } from "./actions/auth";
+import { loadUser } from './actions/auth';
 
-import { setAuthToken } from "./utils/setAuthToken";
+import { setAuthToken } from './utils/setAuthToken';
 
 if (localStorage.token) {
 	setAuthToken(localStorage.token);

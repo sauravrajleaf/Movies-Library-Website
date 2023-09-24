@@ -17,7 +17,11 @@ connectDB();
 app.use(cors());
 
 app.all('*', (req, res, next) => {
-	res.header('Access-Control-Allow-Origin', 'https://localhost:3000');
+	res.header(
+		'Access-Control-Allow-Origin',
+		'https://localhost:3000',
+		'https://movies-library-website-front.onrender.com'
+	);
 	next();
 });
 

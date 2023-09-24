@@ -14,19 +14,13 @@ require('dotenv').config({ path: '../.env' });
 const app = express();
 
 connectDB();
-app.use(
-	cors({
-		origin: [
-			'https://localhost:3000',
-			'https://movies-library-website-front.onrender.com',
-		],
-	})
-);
+app.use(cors({}));
 
 app.all('*', (req, res, next) => {
 	res.header(
 		'Access-Control-Allow-Origin',
 		'https://localhost:3000',
+		'http://localhost:5000/',
 		'https://movies-library-website-front.onrender.com'
 	);
 	next();

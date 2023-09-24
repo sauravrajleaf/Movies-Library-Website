@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
-import { MoviesList } from "../movies/MoviesList";
-import { Pagination } from "../layout/Pagination";
+import { MoviesList } from '../movies/MoviesList';
+import { Pagination } from '../layout/Pagination';
 
-import "./Home.css";
+import './Home.css';
 
 export const Home = () => {
 	const [movies, setMovies] = useState([]);
-	const [check, setCheck] = useState("");
-	const [searchValue, setSearchValue] = useState("");
+	const [check, setCheck] = useState('');
+	const [searchValue, setSearchValue] = useState('');
 
-	const [currentPage, setCurrentPage] = useState("1");
-	const [moviesPerPage] = useState("10");
-	const [totalMovies, setTotalMovies] = useState("");
+	const [currentPage, setCurrentPage] = useState('1');
+	const [moviesPerPage] = useState('10');
+	const [totalMovies, setTotalMovies] = useState('');
 
 	const navigate = useNavigate();
 	useEffect(() => {
@@ -41,10 +41,10 @@ export const Home = () => {
 	};
 
 	const clearSearchValue = () => {
-		setSearchValue("");
+		setSearchValue('');
 		setMovies([]);
-		setCurrentPage("1");
-		navigate("/");
+		setCurrentPage('1');
+		navigate('/');
 	};
 
 	const paginate = (number) => {
@@ -58,7 +58,7 @@ export const Home = () => {
 			<div className='home-container'>
 				<div className='form-container'>
 					<h2>Search your movie here</h2>
-					<h2>Working on styling....</h2>
+					{/* <h2>Working on styling....</h2> */}
 					<form action=''>
 						<label>
 							<input

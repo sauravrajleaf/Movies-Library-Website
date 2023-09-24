@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { useSelector, useDispatch } from "react-redux";
-import { getFavoriteMovies } from "../../actions/favorites";
-import { deleteFavoriteMovies } from "../../actions/favorites";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useSelector, useDispatch } from 'react-redux';
+import { getFavoriteMovies } from '../../actions/favorites';
+import { deleteFavoriteMovies } from '../../actions/favorites';
 
-import { setAuthToken } from "../../utils/setAuthToken";
+import { setAuthToken } from '../../utils/setAuthToken';
 
-import { MyListItems } from "./MyListItems";
+import { MyListItems } from './MyListItems';
 
-import "./MyList.css";
-import { Navigate, useNavigate } from "react-router-dom";
+import './MyList.css';
+import { Navigate, useNavigate } from 'react-router-dom';
 
-import { CopyToClipboard } from "react-copy-to-clipboard";
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 export const MyList = () => {
 	// const dispatch = useDisptach();
@@ -44,7 +44,7 @@ export const MyList = () => {
 			</CopyToClipboard>
 
 			<div className='movies-container'>
-				{" "}
+				{' '}
 				{favorites !== null &&
 					favorites.map((myList) => (
 						<MyListItems myList={myList} key={myList.id} />

@@ -1,21 +1,23 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
-const { body, validationResult } = require("express-validator");
+const { body, validationResult } = require('express-validator');
 
-const User = require("../models/User");
+const User = require('../models/User');
+
+require('dotenv').config({ path: '../.env' });
 
 // @route POST api/users
 // @registers a user
 // @access Public
 router.post(
-	"/",
+	'/',
 	[
-		body("name", "name is required").not().isEmpty(),
-		body("email", "email is required").isEmail(),
-		body("password", "password is required").isLength({ min: 6 }),
+		body('name', 'name is required').not().isEmpty(),
+		body('email', 'email is required').isEmail(),
+		body('password', 'password is required').isLength({ min: 6 }),
 	],
 	async (req, res) => {
 		// res.send(req.body);
@@ -29,7 +31,7 @@ router.post(
 			let user = await User.findOne({ email });
 
 			if (user) {
-				res.status(400).json({ msg: "User already exists" });
+				res.status(400).json({ msg: 'User already exists' });
 			} else {
 				user = new User({
 					name,
@@ -65,7 +67,7 @@ router.post(
 			}
 		} catch (error) {
 			console.log(error.message);
-			res.status(500).send("Server Error");
+			res.status(500).send('Server Error');
 		}
 	}
 );

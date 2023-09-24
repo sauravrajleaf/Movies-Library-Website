@@ -7,6 +7,8 @@ import { Pagination } from '../layout/Pagination';
 
 import './Home.css';
 
+import { URL } from '../../App';
+
 export const Home = () => {
 	const [movies, setMovies] = useState([]);
 	const [check, setCheck] = useState('');
@@ -25,7 +27,9 @@ export const Home = () => {
 
 	const searchMovies = async (searchValue, currentPage) => {
 		// console.log(searchValue, currentPage);
-		const sendReq = await axios.get(`/api/data/${searchValue}/${currentPage}`);
+		const sendReq = await axios.get(
+			`${URL}/api/data/${searchValue}/${currentPage}`
+		);
 		if (sendReq.data.Error !== null) {
 			// console.log(sendReq.data.Error);
 			setCheck(sendReq.data.Error);
